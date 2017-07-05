@@ -1,0 +1,20 @@
+name: youtube-dl
+version: 2017.06.18
+summary: YouTube Downloader.
+description: |
+  youtube-dl is a small command-line program to download videos from
+  YouTube.com and a few more sites.
+
+grade: devel
+confinement: devmode
+
+parts:
+  youtube-dl:
+    source: https://github.com/rg3/youtube-dl/archive/$SNAPCRAFT_PROJECT_VERSION.tar.gz
+    plugin: python
+    python-version: python3
+    stage-packages: [ffmpeg]
+
+apps:
+  youtube-dl:
+    command: bin/youtube-dl
